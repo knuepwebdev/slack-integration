@@ -3,11 +3,18 @@
   <title></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript">
+    var slackEndPoint = 'https://hooks.slack.com/services/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';
+    var message = "A new <http://zen-quote.divshot.io/|order> has been placed";
+    
+    function renderResponse(response) {
+      $('body').append(response);
+    };
+    
     function sendMessageToSlack() {
       $.post(
-        'https://hooks.slack.com/services/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',
-        JSON.stringify({text: "A new <http://zen-quote.divshot.io/|order> has been placed",}),
-        function(data) { console.log ('*my callback*')}
+        slackEndPoint,
+        JSON.stringify({text: message}),
+        renderResponse
       );
     };
 
