@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    function sendMessageToSlack() {
+      $.ajax({
+        type: 'POST',
+        url: 'https://hooks.slack.com/services/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',
+        dataType: 'json',
+        data: JSON.stringify({text: "A new <http://zen-quote.divshot.io/|order> has been placed"})
+      });
+    };
+
+    function loadApp() {
+      sendMessageToSlack();
+    };
+
+    $(document).ready(loadApp);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
